@@ -62,12 +62,12 @@ This is a helper function to serialize the membership list to a message and send
 it to the dst,
 
 Three types of message:
-1. JOINREQ: message to notify the introducer. JOINREQ = MsgHeader+1 buffer char
-+ Address + heartbeat
+1. JOINREQ: message to notify the introducer. JOINREQ = MsgHeader + 1 buffer char +
+Address + heartbeat
 2. JOINREP:  message to confirm one node that it is now in the network. It
 returns a message of the same format of GOSSIP
 3. GOSSIP: the peridical message to notify other nodes the membership list of
-one node. GOSSIP = MsgHeader+1 buffer char+ Address + <MembershipEntry>\*size of
+one node. GOSSIP = MsgHeader + 1 buffer char + Address + <MembershipEntry>\*size of
 membership list. <MembershipEntry> = Address of the member + heartbeat. 
 ### On Accuracy and Completeness
 Once a member is set to -1, it does not recover even if other node has sent a newer
@@ -78,8 +78,9 @@ to fail and track its old heartbeat at the same time.
 This however gurantee 100% completeness but not 100% accuracy. 
 
 ### Reference
-[Specification](mp1_specifications.pdf)
-[Paper about Gossip Protocol](GossipFD.pdf)
+- [Specification](mp1_specifications.pdf)
+
+- [Paper about Gossip Protocol](GossipFD.pdf)
 
 ### Bugs that has been fixed
 - should comment debug info otherwise it cannot submit
